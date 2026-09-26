@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260926-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r4) | 2026-09-26 | [`b66e913`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/b66e913a537e94cfbbe456b5325c937b12d18c7a) | anv: change detection of input attachments | Vulkan 1.4.363 |
 | [v26.3.0-20260926-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r3) | 2026-09-26 | [`36e8a07`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/36e8a070ec15ee4f1251c5171a95d00ee9e3e65f) | Revert "radv/ci: disable gfx1201 & navi21 merge jobs" | Vulkan 1.4.363 |
 | [v26.3.0-20260926-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r2) | 2026-09-26 | [`82d4f86`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/82d4f86a0a1e9f76b2de4fa77c6c8e6acaf06aa9) | jay/nir_lower_fsign: use u2u instead of i2i for downcasts | Vulkan 1.4.363 |
 | [v26.3.0-20260926](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926) | 2026-09-26 | [`a5d39a4`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a5d39a4b743b719cfc2a0da410910ea3fd8ff770) | intel/ci: Update expectation for RPL | Vulkan 1.4.363 |
