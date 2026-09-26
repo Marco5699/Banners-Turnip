@@ -91,12 +91,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`82d4f86`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/82d4f86a0a1e9f76b2de4fa77c6c8e6acaf06aa9) |
+| **Commit** | [`36e8a07`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/36e8a070ec15ee4f1251c5171a95d00ee9e3e65f) |
 | **Commit date** | 2026-09-26 |
-| **Commit title** | jay/nir_lower_fsign: use u2u instead of i2i for downcasts |
+| **Commit title** | Revert "radv/ci: disable gfx1201 & navi21 merge jobs" |
 | **Build date** | 20260926 |
 | **Downloads** | X11 / AdrenoTools: 2 ZIPs · Bannerlator Wayland: 2 ZIPs · Linux runtime: 2 ZIPs |
-| **Release** | [v26.3.0-20260926-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r2) |
+| **Release** | [v26.3.0-20260926-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r3) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -106,11 +106,11 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260926-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r3) | 2026-09-26 | [`36e8a07`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/36e8a070ec15ee4f1251c5171a95d00ee9e3e65f) | Revert "radv/ci: disable gfx1201 & navi21 merge jobs" | Vulkan 1.4.363 |
 | [v26.3.0-20260926-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r2) | 2026-09-26 | [`82d4f86`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/82d4f86a0a1e9f76b2de4fa77c6c8e6acaf06aa9) | jay/nir_lower_fsign: use u2u instead of i2i for downcasts | Vulkan 1.4.363 |
 | [v26.3.0-20260926](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926) | 2026-09-26 | [`a5d39a4`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a5d39a4b743b719cfc2a0da410910ea3fd8ff770) | intel/ci: Update expectation for RPL | Vulkan 1.4.363 |
 | [v26.3.0-20260925-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260925-r6) | 2026-09-25 | [`ce23b4a`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/ce23b4a7f502cacfd1941e67a0725c6301f229f8) | svga: Implement GL_ARB_shader_texture_image_samples | Vulkan 1.4.363 |
 | [v26.3.0-20260925-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260925-r5) | 2026-09-25 | [`ffdbb19`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/ffdbb19c2c3f705c9d79b6b932fb93d486128135) | radeonsi: invalidate I$/SMEM$/VMEM$ at IB start on gfx12 | Vulkan 1.4.363 |
-| [v26.3.0-20260925-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260925-r4) | 2026-09-25 | [`b6cac6c`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/b6cac6ce3d2baf1279e7e087940ac4ed3276d1d5) | nir/validate: Validate that i2iN opcodes are only used for sign-extension | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
