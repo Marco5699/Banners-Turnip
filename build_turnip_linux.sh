@@ -313,13 +313,15 @@ EOF
 	# wsi_common_drm.c, and vkCreateSwapchainKHR walks into a compiled-out branch.
 	# Only the Vulkan ICD is built: the runtime's own Mesa supplies Zink, EGL and GL, and the
 	# client's OpenGL reaches this driver through that Zink.
+	local buildtype=release
+	[ -n "$KEEP_SYMBOLS" ] && buildtype=debugoptimized
 	rm -rf build-linux
 	meson setup build-linux \
 		--cross-file "$cross" \
 		--native-file "$native" \
 		--prefix /usr \
 		--libdir lib \
-		--buildtype "${KEEP_SYMBOLS:+debugoptimized}${KEEP_SYMBOLS:-release}" \
+		--buildtype "$buildtype" \
 		-Dvulkan-drivers=freedreno \
 		-Dfreedreno-kmds=msm,kgsl \
 		-Dgallium-drivers= \
