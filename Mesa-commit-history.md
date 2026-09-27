@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260927-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927-r2) | 2026-09-27 | [`744019b`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/744019b0ea8b263e994fcebbc410843a6d6c94af) | etnaviv: Keep transform feedback active across flushes | Vulkan 1.4.363 |
 | [v26.3.0-20260927](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927) | 2026-09-27 | [`9315107`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9315107fc90dfcc3d79e408964054b6042e442a3) | freedreno/ci: a306: reenable fixed tests | Vulkan 1.4.363 |
 | [v26.3.0-20260926-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r5) | 2026-09-26 | [`61f2590`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/61f259049cf0eb0c69ad2fae50d1268f82fd54e3) | pps: Initialize Counter member variable units | Vulkan 1.4.363 |
 | [v26.3.0-20260926-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260926-r4) | 2026-09-26 | [`b66e913`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/b66e913a537e94cfbbe456b5325c937b12d18c7a) | anv: change detection of input attachments | Vulkan 1.4.363 |
