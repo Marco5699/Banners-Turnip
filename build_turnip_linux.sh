@@ -26,6 +26,8 @@
 #   EXTRA_PATCH      patch series, as build_turnip.sh
 #   EXTRA_SCRIPT     colon-separated Python scripts, as build_turnip.sh
 #   VARIANT          label for logs and the build report
+#   KEEP_SYMBOLS     1 = optimised build with debug info, not stripped (a driver gdb can name
+#                    functions in; for tracking a crash, never for a release)
 # Output: linux_workdir/$ZIP_NAME and linux_workdir/build-report.json
 #
 # Needs: aarch64-linux-gnu-gcc/g++, meson >= 1.5, ninja, python3 (mako, pyyaml, packaging),
@@ -317,7 +319,7 @@ EOF
 		--native-file "$native" \
 		--prefix /usr \
 		--libdir lib \
-		--buildtype release \
+		--buildtype "${KEEP_SYMBOLS:+debugoptimized}${KEEP_SYMBOLS:-release}" \
 		-Dvulkan-drivers=freedreno \
 		-Dfreedreno-kmds=msm,kgsl \
 		-Dgallium-drivers= \
@@ -349,8 +351,13 @@ package(){
 	desc="Linux build: ${desc} glibc Vulkan ICD (KGSL, Wayland + X11 WSI) for Bannerlator's Linux runtime - it draws the native Steam client and the games it launches. Not an AdrenoTools driver and not for Wine containers."
 
 	rm -rf "$stage" && mkdir -p "$stage"
-	aarch64-linux-gnu-strip -o "$stage/libvulkan_freedreno.so" \
-		build-linux/src/freedreno/vulkan/libvulkan_freedreno.so || die "strip failed"
+	if [ -n "$KEEP_SYMBOLS" ]; then
+		log "KEEP_SYMBOLS: shipping the unstripped driver (debug build)"
+		cp build-linux/src/freedreno/vulkan/libvulkan_freedreno.so "$stage/libvulkan_freedreno.so" || die "copy failed"
+	else
+		aarch64-linux-gnu-strip -o "$stage/libvulkan_freedreno.so" \
+			build-linux/src/freedreno/vulkan/libvulkan_freedreno.so || die "strip failed"
+	fi
 
 	# The highest glibc symbol version the driver asks for: the rootfs must be at least this.
 	glibc_min="$(aarch64-linux-gnu-readelf -V -W "$stage/libvulkan_freedreno.so" \

@@ -1,0 +1,53 @@
+name: Linux Turnip debug build (symbols kept)
+
+# One Linux (glibc) Turnip built with debug info and not stripped, kept as a run artifact: a
+# driver gdb can name functions in, for tracking a crash on the device. Publishes nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      mesa_commit:
+        description: "Full 40-hex Mesa commit to build"
+        required: true
+      variant:
+        description: "regular | a8xx | 710-720-test"
+        required: false
+        default: "regular"
+
+jobs:
+  linux-debug:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build unzip flex bison cmake glslang-tools curl pkg-config \
+            gcc-aarch64-linux-gnu g++-aarch64-linux-gnu binutils-aarch64-linux-gnu \
+            python3-pip zip patch tar zstd xz-utils
+          pip3 install --break-system-packages 'meson>=1.5' mako pyyaml packaging
+      - name: Build (Linux, symbols kept)
+        env:
+          MESA_COMMIT: ${{ inputs.mesa_commit }}
+          VARIANT: ${{ inputs.variant }}
+          KEEP_SYMBOLS: "1"
+        run: |
+          set -euo pipefail
+          [[ "$MESA_COMMIT" =~ ^[0-9a-f]{40}$ ]] || { echo "::error::mesa_commit must be a full 40-hex commit"; exit 1; }
+          case "$VARIANT" in
+            regular) EXTRA_PATCH=""; EXTRA_SCRIPT="" ;;
+            a8xx) EXTRA_PATCH="patches/a8xx_gen8.patch"; EXTRA_SCRIPT="patches/a8xx_shared_mem.py" ;;
+            710-720-test) EXTRA_PATCH=""; EXTRA_SCRIPT="patches/a710-720.py" ;;
+            *) echo "::error::unknown variant $VARIANT"; exit 1 ;;
+          esac
+          export EXTRA_PATCH EXTRA_SCRIPT
+          export ZIP_NAME="Turnip-debug-${MESA_COMMIT:0:10}-${VARIANT}-Linux.zip"
+          export META_NAME="Mesa Turnip debug ${MESA_COMMIT:0:10} ${VARIANT}-Linux"
+          export PACKAGE_VERSION=1
+          chmod +x build_turnip_linux.sh
+          ./build_turnip_linux.sh
+          ls -l linux_workdir/*.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: turnip-linux-debug-${{ inputs.variant }}
+          path: linux_workdir/Turnip-debug-*-Linux.zip
