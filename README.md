@@ -95,8 +95,8 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | **Commit date** | 2026-09-27 |
 | **Commit title** | pan/nir: Stop lowering inot for Kraid |
 | **Build date** | 20260928 |
-| **Downloads** | X11 / AdrenoTools: 2 ZIPs · Bannerlator Wayland: 2 ZIPs · Linux runtime: 2 ZIPs |
-| **Release** | [v26.3.0-20260928](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928) |
+| **Downloads** | X11 / AdrenoTools: 3 ZIPs · Bannerlator Wayland: 3 ZIPs · Linux runtime: 3 ZIPs |
+| **Release** | [v26.3.0-20260928-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928-r2) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -106,12 +106,10 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
-| [v26.3.0-20260928](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928) | 2026-09-28 | [`eda9ace`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/eda9aceb39d5ff169b096444abe366bdf2269e24) | pan/nir: Stop lowering inot for Kraid | Vulkan 1.4.363 |
+| [v26.3.0-20260928-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928-r2) | 2026-09-28 | [`eda9ace`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/eda9aceb39d5ff169b096444abe366bdf2269e24) | pan/nir: Stop lowering inot for Kraid | Vulkan 1.4.363 |
 | [v26.3.0-20260927-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927-r5) | 2026-09-27 | [`c37a554`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/c37a554641aca5333529758d19425c8d1c657408) | kraid: Optimize texture projectors on v11+ | Vulkan 1.4.363 |
 | [v26.3.0-20260927-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927-r4) | 2026-09-27 | [`63bb18a`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/63bb18ab73a19ec8125f51515b16b3f40ce6ca04) | pan: fix missing access tracking in batch read/write helpers | Vulkan 1.4.363 |
 | [v26.3.0-20260927-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927-r3) | 2026-09-27 | [`90fae16`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/90fae16e42e3f33043f1111b9a69a728241ba0b8) | isl: Drop a standard tiling assertion | Vulkan 1.4.363 |
-| [v26.3.0-20260927-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927-r2) | 2026-09-27 | [`744019b`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/744019b0ea8b263e994fcebbc410843a6d6c94af) | etnaviv: Keep transform feedback active across flushes | Vulkan 1.4.363 |
-| [v26.3.0-20260927](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260927) | 2026-09-27 | [`9315107`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9315107fc90dfcc3d79e408964054b6042e442a3) | freedreno/ci: a306: reenable fixed tests | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
