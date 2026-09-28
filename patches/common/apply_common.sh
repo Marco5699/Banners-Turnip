@@ -7,7 +7,8 @@ set -eu
 cd "${1:?usage: apply_common.sh <mesa-dir>}"
 here="$(cd "$(dirname "$0")" && pwd)"
 
-for p in "$here/kgsl-syncobj-merge-ts-fd.patch"; do
+for p in "$here/kgsl-syncobj-merge-ts-fd.patch" "$here/a8xx-cube-coord-sanitize.patch" \
+         "$here/a8xx-bindless-invalidate.patch" "$here/a8xx-kgsl-ib-vbo-alias.patch"; do
 	echo "[common] applying $(basename "$p")"
 	rc=0
 	out="$(patch -p1 -N --fuzz=3 --no-backup-if-mismatch < "$p" 2>&1)" || rc=$?
@@ -18,3 +19,9 @@ done
 # Assert the result rather than trust the patch.
 [ "$(grep -c "int ret_fd = kgsl_syncobj_ts_to_fd(&ret)" src/freedreno/vulkan/tu_knl_kgsl.cc)" = 2 ] \
 	|| { echo "[common] kgsl-syncobj-merge-ts-fd did not reach tu_knl_kgsl.cc" >&2; exit 1; }
+grep -q "cube_coord_hang_quirk = True" src/freedreno/common/freedreno_devices.py \
+	|| { echo "[common] a8xx-cube-coord-sanitize did not reach freedreno_devices.py" >&2; exit 1; }
+grep -q "SP_GFX_BINDLESS_INVALIDATE" src/freedreno/vulkan/tu_cmd_buffer.h \
+	|| { echo "[common] a8xx-bindless-invalidate did not reach tu_cmd_buffer.h" >&2; exit 1; }
+grep -q "KGSL_MEMFLAGS_VBO" src/freedreno/vulkan/tu_knl_kgsl.cc \
+	|| { echo "[common] a8xx-kgsl-ib-vbo-alias did not reach tu_knl_kgsl.cc" >&2; exit 1; }
