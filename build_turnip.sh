@@ -73,6 +73,9 @@ build_lib_for_android(){
 	cd "$workdir/$srcfolder"
 	echo "==== Building Mesa on $1 branch ===="
 
+	# KGSL fixes every leg ships (patches/common/SOURCE); fails the build if one does not land.
+	bash ../../patches/common/apply_common.sh . || { echo -e "${red}patches/common did not apply, aborting!${nocolor}"; exit 1; }
+
 	# Apply optional patch series if EXTRA_PATCH is set (e.g. patches/tu8_kgsl_26.patch)
 	if [ -n "$EXTRA_PATCH" ] && [ -f "../../$EXTRA_PATCH" ]; then
 		echo "Applying patch series: $EXTRA_PATCH"

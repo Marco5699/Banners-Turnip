@@ -64,6 +64,9 @@ build_lib_for_android(){
 	cd "$workdir/$srcfolder"
 	echo "==== Building Mesa on $1 branch (performance build — A6xx/A7xx) ===="
 
+	# KGSL fixes every leg ships (patches/common/SOURCE); fails the build if one does not land.
+	bash ../../patches/common/apply_common.sh . || { echo -e "${red}patches/common did not apply, aborting!${nocolor}"; exit 1; }
+
 	# NDK r29 compatibility fixes
 	sed -i 's/typedef const native_handle_t\* buffer_handle_t;/typedef void\* buffer_handle_t;/g' include/android_stub/cutils/native_handle.h || true
 	sed -i 's/, hnd->handle/, (void \*)hnd->handle/g' src/util/u_gralloc/u_gralloc_fallback.c || true

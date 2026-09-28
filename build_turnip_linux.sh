@@ -224,6 +224,8 @@ else:
 PY
 )"
 	log "KGSL timestamp-wait assert -> warning: $kgsl_assert"
+	# KGSL fixes every leg ships (patches/common/SOURCE).
+	bash "$repo/patches/common/apply_common.sh" . || die "patches/common did not apply"
 
 	git -c user.name=banners-turnip -c user.email=build@banners-turnip commit -q -am "Linux build: KGSL patches"
 	git tag -f banner-linux >/dev/null
