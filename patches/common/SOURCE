@@ -12,3 +12,18 @@ kgsl-syncobj-merge-ts-fd.patch (DroidDeck, 2026-09-26; still in Mesa main)
   timestamp side becomes the fence and is merged with the fd.
   Device-proven on the Linux leg (Cemu SM3DW/Deus Ex/Wipeout 3; RPCS3, Dolphin,
   Steam unchanged). Drop it once Mesa main carries an equivalent fix.
+
+a8xx-cube-coord-sanitize.patch, a8xx-bindless-invalidate.patch, a8xx-kgsl-ib-vbo-alias.patch
+  (Max / MaxsTechReview, WinNative-Emu/Drivers linux/patches 0003-0005, 2026-09-28, GPL-3.0)
+  A8XX GPU hangs found in FINAL FANTASY VII REBIRTH:
+  - cube-coord-sanitize: sampling a cube map with a NaN/zero direction hangs A8XX; the
+    shader now clamps NaN to 0 and turns the zero vector into +Z (quirk set on a8xx_base only).
+  - bindless-invalidate: A8XX dropped the bindless bits of SP_UPDATE_CNTL, so stale bindless
+    descriptors stayed cached; invalidate through SP_GFX/CS_BINDLESS_INVALIDATE instead, also
+    at hw init and before blits. Older chips keep the SP_UPDATE_CNTL write unchanged.
+    Adapted: Max's descriptor-set hunk targets tu6_emit_bindless_bases, which his mesh-shader
+    patch adds; here it replaces the same write in tu6_emit_descriptor_sets.
+  - kgsl-ib-vbo-alias: freeing command-stream memory with GPUMEM_FREE_ID hangs A8XX even when
+    idle; BOs holding IBs are fetched through a VBO alias that is unbound before the free
+    (chip >= A8XX only).
+  Max's mesh-shader and wave32 patches (0001/0002) are NOT carried.
