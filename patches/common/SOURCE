@@ -1,0 +1,14 @@
+Fixes every leg applies (build_turnip.sh, build_turnip_perf.sh, build_turnip_wayland.sh,
+build_turnip_linux.sh) through apply_common.sh, before the variant's own EXTRA_PATCH/EXTRA_SCRIPT.
+They are KGSL-backend bugs, so Android builds carry them too.
+
+kgsl-syncobj-merge-ts-fd.patch (DroidDeck, 2026-09-26; still in Mesa main)
+  kgsl_syncobj_merge converted the wrong syncobj when a timestamp result met a
+  sync-file: it called kgsl_syncobj_ts_to_fd on the fd syncobj, which has no queue
+  (NULL dereference in release builds, an assert in debug ones), and the
+  two-queues branch merged an fd the timestamp result never had. A submit that
+  waits on two semaphores of the two kinds - Cemu's every frame: the previous
+  command buffer plus the swapchain acquire - crashed on the first frame. Now the
+  timestamp side becomes the fence and is merged with the fd.
+  Device-proven on the Linux leg (Cemu SM3DW/Deus Ex/Wipeout 3; RPCS3, Dolphin,
+  Steam unchanged). Drop it once Mesa main carries an equivalent fix.

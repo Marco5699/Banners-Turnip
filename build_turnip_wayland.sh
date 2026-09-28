@@ -131,6 +131,8 @@ PY
 		|| die "no_pthread_cancel.py did not apply"
 	# Bannerlator zero-copy layers (banner_ahb_v1, UBWC request); every anchor is asserted.
 	python3 "$wl_patches/banner_ahb_wsi.py" . || die "banner_ahb_wsi.py did not apply"
+	# KGSL fixes every leg ships (patches/common/SOURCE).
+	bash "$repo/patches/common/apply_common.sh" . || die "patches/common did not apply"
 
 	git -c user.name=banners-turnip -c user.email=build@banners-turnip commit -q -am "Wayland build: shared patches"
 	git tag -f banner-wayland >/dev/null
