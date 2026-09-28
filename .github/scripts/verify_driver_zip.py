@@ -205,6 +205,8 @@ def main():
     print(f"  wl_ symbols: {len(wl_symbols)}")
 
     c.check(soname == "libvulkan_freedreno.so", f"SONAME is libvulkan_freedreno.so (got '{soname}')")
+    c.check(b"drirc.d" not in so and "libexpat.so.1" not in needed,
+            "driconf defaults are built in (no drirc.d path, no libexpat)")
     if a.kind == "linux":
         c.check("libc.so.6" in needed, "NEEDED has glibc libc.so.6")
         c.check("GLIBC_" in versions, "asks for GLIBC_ symbol versions (a real glibc build)")

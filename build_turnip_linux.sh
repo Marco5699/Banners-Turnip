@@ -313,6 +313,8 @@ pkg_config_path = '$hosttools/lib/pkgconfig'
 EOF
 	# freedreno-kmds MUST list msm as well as kgsl: with kgsl alone meson drops libdrm and
 	# wsi_common_drm.c, and vkCreateSwapchainKHR walks into a compiled-out branch.
+	# The driconf defaults (vkd3d/DXVK workarounds, per-game options) are compiled in with xmlconfig off, as the Android and Wayland legs have them.
+	# With it on, the driver read them from the runtime's /usr/share/drirc.d, which is whatever Mesa the rootfs ships, or nothing at all.
 	# Only the Vulkan ICD is built: the runtime's own Mesa supplies Zink, EGL and GL, and the
 	# client's OpenGL reaches this driver through that Zink.
 	local buildtype=release
@@ -335,6 +337,7 @@ EOF
 		-Dllvm=disabled \
 		-Dvulkan-layers= \
 		-Dtools= \
+		-Dxmlconfig=disabled \
 		|| { echo "== meson log =="; tail -80 build-linux/meson-logs/meson-log.txt 2>/dev/null; die "meson setup failed"; }
 	ninja -C build-linux src/freedreno/vulkan/libvulkan_freedreno.so || die "build failed"
 	[ -f build-linux/src/freedreno/vulkan/libvulkan_freedreno.so ] || die "libvulkan_freedreno.so was not built"
