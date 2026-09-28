@@ -58,7 +58,7 @@ Targets Adreno 800-series (Snapdragon 8 Elite — A810, A825, A829, A830, A840).
 
 | Patch | What it does |
 | :--- | :--- |
-| [`a8xx_gen8.patch`](patches/a8xx_gen8.patch) | 13 commits from whitebelyash's [`turnip/gen8`](https://github.com/whitebelyash/mesa-unified) stack (as shipped in tu_v29 / StevenMXZ v33): A8xx GPU configs, UBWC gralloc detection, `disable_gmem` GPU property, Steam Deck spoof (`TU_DEBUG=deck_emu`), A810 fixes |
+| [`a8xx_gen8.patch`](patches/a8xx_gen8.patch) | 12 commits from whitebelyash's [`turnip/gen8`](https://github.com/whitebelyash/mesa-unified) stack (as shipped in tu_v29 / StevenMXZ v33): A8xx GPU configs, UBWC gralloc detection, `disable_gmem` GPU property, Steam Deck spoof (`TU_DEBUG=deck_emu`), A810 fixes |
 | [`a8xx_shared_mem.py`](patches/a8xx_shared_mem.py) | `cs_shared_mem_size` 32 KiB → 64 KiB on every device entry |
 
 Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game won't start. **Use at your own risk.**
