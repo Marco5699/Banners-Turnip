@@ -125,37 +125,23 @@ Disables GMEM usage completely, effectively same thing as TU_DEBUG=sysmem
 
 Signed-off-by: whitebelyash <whbexiumwork@gmail.com>
 ---
- src/freedreno/common/freedreno_dev_info.h | 6 ++----
+ src/freedreno/common/freedreno_dev_info.h | 2 ++
  src/freedreno/vulkan/tu_cmd_buffer.cc     | 6 ++++++
- 2 files changed, 8 insertions(+), 4 deletions(-)
+ 2 files changed, 8 insertions(+)
 
 diff --git a/src/freedreno/common/freedreno_dev_info.h b/src/freedreno/common/freedreno_dev_info.h
 index 4302b8a4bb9..827be3b78e8 100644
 --- a/src/freedreno/common/freedreno_dev_info.h
 +++ b/src/freedreno/common/freedreno_dev_info.h
-@@ -474,20 +474,18 @@ struct fd_dev_info {
-        * expected:
-        */
-       bool has_salu_int_narrowing_quirk;
--
-       /* Whether the device supports the image processing opcode */
-       bool has_image_processing;
--
-       /* The amount of valid draw state IDs. */
-       uint32_t max_draw_states;
--
-       /* Whether GRAS_CL_INTERP_CNTL has FACENESS/CENTERRHW and thus
-        * being able to avoid setting ij_linear_sample for FragFace/FragCoord.
-        */
-       bool has_implicit_fragface_fragcoord_ij_linear;
--
+@@ -471,6 +471,8 @@ struct fd_dev_info {
+ 
        uint32_t max_texel_buffer_range_elements;
        uint32_t max_storage_buffer_range_bytes;
 +      /* If GMEM needs to be disabled for this GPU */
 +      bool disable_gmem;
-    } props;
- };
  
+       /* There seems to be a HW bug where a dummy prefetch sam.s2en always
+        * reads its src2 from fiber 0. This may cause faults when fiber 0 is a
 diff --git a/src/freedreno/vulkan/tu_cmd_buffer.cc b/src/freedreno/vulkan/tu_cmd_buffer.cc
 index 60ad3a8ef90..f7d14a67f9a 100644
 --- a/src/freedreno/vulkan/tu_cmd_buffer.cc
@@ -330,16 +316,16 @@ diff --git a/src/freedreno/common/freedreno_dev_info.h b/src/freedreno/common/fr
 index 827be3b78e8..bd6f80ac395 100644
 --- a/src/freedreno/common/freedreno_dev_info.h
 +++ b/src/freedreno/common/freedreno_dev_info.h
-@@ -486,6 +486,9 @@ struct fd_dev_info {
+@@ -473,6 +473,9 @@ struct fd_dev_info {
        uint32_t max_storage_buffer_range_bytes;
        /* If GMEM needs to be disabled for this GPU */
        bool disable_gmem;
 +
 +      /* GMEM size in bytes */
 +      uint32_t gmem_size;
-    } props;
- };
  
+       /* There seems to be a HW bug where a dummy prefetch sam.s2en always
+        * reads its src2 from fiber 0. This may cause faults when fiber 0 is a
 diff --git a/src/freedreno/common/freedreno_devices.py b/src/freedreno/common/freedreno_devices.py
 index 452695fc5db..d9c600ef22c 100644
 --- a/src/freedreno/common/freedreno_devices.py
