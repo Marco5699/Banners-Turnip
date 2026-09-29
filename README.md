@@ -101,12 +101,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`9af228c`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9af228cdabeb6fc8626866a12b4dd5a033b61c8a) |
+| **Commit** | [`a995eae`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a995eaeda4339adb0278b06dcc98136011feac36) |
 | **Commit date** | 2026-09-29 |
-| **Commit title** | nv30: advertise blend_equation_separate and npot_textures on nv30 to get gles 2.0 |
+| **Commit title** | tu: Make CmdClearAttachments record TU_ACCESS_BLIT_WRITE_GMEM access |
 | **Build date** | 20260929 |
 | **Downloads** | X11 / AdrenoTools: 3 ZIPs · Bannerlator Wayland: 3 ZIPs · Linux runtime: 3 ZIPs |
-| **Release** | [v26.3.0-20260929-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r5) |
+| **Release** | [v26.3.0-20260929-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r6) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -116,11 +116,11 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260929-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r6) | 2026-09-29 | [`a995eae`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a995eaeda4339adb0278b06dcc98136011feac36) | tu: Make CmdClearAttachments record TU_ACCESS_BLIT_WRITE_GMEM access | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r5) | 2026-09-29 | [`9af228c`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9af228cdabeb6fc8626866a12b4dd5a033b61c8a) | nv30: advertise blend_equation_separate and npot_textures on nv30 to get gles 2.0 | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r3) | 2026-09-29 | [`4d56f11`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4d56f11c7db6a7a1adcf40d11c4439d48bf998a5) | docs/new_features: Document support for GLES3 on etnaviv/HALTI5 | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r2) | 2026-09-29 | [`fe55488`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/fe554882e4f06cdd2579a77b37b04de605111a28) | radv: reduce cache flushing in radv_query_shader | Vulkan 1.4.363 |
 | [v26.3.0-20260929](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929) | 2026-09-29 | [`4cf0989`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4cf0989083d25b92d02c6fef2bed934ad77b4ecd) | venus: honor the virtio-gpu blob alignment | Vulkan 1.4.363 |
-| [v26.3.0-20260928-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928-r5) | 2026-09-28 | [`ae66688`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/ae6668842624250a45413e4ceeac0b3b1da0a060) | meson/gfxstream: drop leftover vars | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
