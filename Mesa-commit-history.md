@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260929-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r4) | 2026-09-29 | [`9af228c`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9af228cdabeb6fc8626866a12b4dd5a033b61c8a) | nv30: advertise blend_equation_separate and npot_textures on nv30 to get gles 2.0 | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r3) | 2026-09-29 | [`4d56f11`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4d56f11c7db6a7a1adcf40d11c4439d48bf998a5) | docs/new_features: Document support for GLES3 on etnaviv/HALTI5 | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r2) | 2026-09-29 | [`fe55488`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/fe554882e4f06cdd2579a77b37b04de605111a28) | radv: reduce cache flushing in radv_query_shader | Vulkan 1.4.363 |
 | [v26.3.0-20260929](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929) | 2026-09-28 | [`4cf0989`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4cf0989083d25b92d02c6fef2bed934ad77b4ecd) | venus: honor the virtio-gpu blob alignment | Vulkan 1.4.363 |
