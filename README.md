@@ -44,9 +44,19 @@ Each release ships three drivers, each as three ZIPs built from the same Mesa co
 
 [**Download latest →**](https://github.com/The412Banner/Banners-Turnip/releases/latest) · [**Full build history →**](Mesa-commit-history.md)
 
+### Fixes in every driver
+
+These are bugs in Turnip's Adreno (KGSL) code that are **still in Mesa `main`**, so every ZIP carries a fix: Standard, A8xx and A710/720/722, for X11, Wayland and Linux alike. They live in [`patches/common/`](patches/common) and are applied by [`apply_common.sh`](patches/common/apply_common.sh), which fails the build if a fix goes missing. Each one is dropped once Mesa carries its own fix. Full notes: [`patches/common/SOURCE`](patches/common/SOURCE).
+
+| Fix | What was wrong | What it changes |
+| :--- | :--- | :--- |
+| [`kgsl-zero-timeout-poll.patch`](patches/common/kgsl-zero-timeout-poll.patch) — *DirectX 12 no longer waits on the GPU every frame* | A quick "has the GPU finished yet?" check was sent to the kernel as a wait with a zero time limit, and the Adreno kernel driver reads zero as "wait forever". VKD3D-Proton makes that check on every frame, so the CPU and GPU took turns instead of working at the same time. | The check now reads the GPU's last finished job and answers at once. On an Adreno 750, a DirectX 12 demo went from 378 to 1422 fps on X11 and from 588 to 3449 fps on Bannerlator's Wayland. [Full report](docs/KGSL_ZERO_TIMEOUT_POLL.md). |
+| [`kgsl-syncobj-merge-ts-fd.patch`](patches/common/kgsl-syncobj-merge-ts-fd.patch) — *no crash when a frame waits on two kinds of sync* | When a submit waited on a GPU timestamp and a sync file together, the driver converted the wrong one and crashed. Cemu does that on every frame, so it crashed on its first frame. | The timestamp side is turned into the sync file and merged correctly. Proven with Cemu, RPCS3 and Dolphin in DroidDeck. |
+| [`a8xx-cube-coord-sanitize.patch`](patches/common/a8xx-cube-coord-sanitize.patch), [`a8xx-bindless-invalidate.patch`](patches/common/a8xx-bindless-invalidate.patch), [`a8xx-kgsl-ib-vbo-alias.patch`](patches/common/a8xx-kgsl-ib-vbo-alias.patch) — *A8xx GPU hangs* | Three Adreno 8xx hangs found in FINAL FANTASY VII REBIRTH: a cube-map lookup with an empty direction, stale bindless descriptors, and freeing command memory. | Each fix only takes effect on Adreno 8xx; older GPUs are unchanged. From Max (MaxsTechReview) in [WinNative-Emu/Drivers](https://github.com/WinNative-Emu/Drivers). |
+
 ### A6xx / A7xx — Standard
 
-Pure Mesa `main`, no source patches. Compatible with Adreno 600–700 series GPUs (Snapdragon 600–800 series, including 7 Gen and 8 Gen 1–3).
+Mesa `main` plus the [fixes every driver carries](#fixes-in-every-driver), with no GPU-specific patches. Compatible with Adreno 600–700 series GPUs (Snapdragon 600–800 series, including 7 Gen and 8 Gen 1–3).
 
 ### A710 / A720 / A722 — Experimental / Work in Progress
 

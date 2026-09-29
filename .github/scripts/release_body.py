@@ -239,10 +239,24 @@ def main():
     def link(path):
         return f"[`{os.path.basename(path)}`]({REPO_BLOB.format(repo=a.repo, ref=a.ref, path=path)})"
 
+    w("**🩹 Fixes in every driver** (bugs still in Mesa `main`; every zip carries them, see "
+      + link("patches/common/SOURCE") + "):")
+    w("")
+    w("- **DirectX 12 no longer waits on the GPU every frame** (" + link("patches/common/kgsl-zero-timeout-poll.patch")
+      + "). A quick \"is the GPU done yet?\" check was sent to the kernel as \"wait until it's done\", so the CPU "
+      "and GPU took turns with VKD3D-Proton. Now it answers at once. On an Adreno 750, a DirectX 12 demo went from "
+      "378 to 1422 fps on X11 and from 588 to 3449 fps on Wayland ([report](" + REPO_BLOB.format(repo=a.repo, ref=a.ref,
+      path="docs/KGSL_ZERO_TIMEOUT_POLL.md") + ")).")
+    w("- **No crash when a frame waits on two kinds of sync at once** (" + link("patches/common/kgsl-syncobj-merge-ts-fd.patch")
+      + "). Cemu crashed on its first frame; proven fixed with Cemu, RPCS3 and Dolphin.")
+    w("- **Three Adreno 8xx GPU hang fixes** (" + link("patches/common/a8xx-cube-coord-sanitize.patch") + ", "
+      + link("patches/common/a8xx-bindless-invalidate.patch") + ", " + link("patches/common/a8xx-kgsl-ib-vbo-alias.patch")
+      + ") from Max (MaxsTechReview, WinNative). They only take effect on Adreno 8xx.")
+    w("")
     w("<details>")
     w("<summary>Build details and checksums</summary>")
     w("")
-    w("- **Standard:** plain Mesa `main`, no patches.")
+    w("- **Standard:** Mesa `main` plus the fixes above, no GPU-specific patches.")
     a8_desc = f"whitebelyash's `turnip/gen8` stack ({link(a8_patch)}"
     a8_desc += f", {len(a8_commits)} commits)" if a8_commits else ")"
     if a8_scripts:
