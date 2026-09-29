@@ -91,12 +91,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`4cf0989`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4cf0989083d25b92d02c6fef2bed934ad77b4ecd) |
-| **Commit date** | 2026-09-28 |
-| **Commit title** | venus: honor the virtio-gpu blob alignment |
+| **Commit** | [`fe55488`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/fe554882e4f06cdd2579a77b37b04de605111a28) |
+| **Commit date** | 2026-09-29 |
+| **Commit title** | radv: reduce cache flushing in radv_query_shader |
 | **Build date** | 20260929 |
 | **Downloads** | X11 / AdrenoTools: 3 ZIPs · Bannerlator Wayland: 3 ZIPs · Linux runtime: 3 ZIPs |
-| **Release** | [v26.3.0-20260929](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929) |
+| **Release** | [v26.3.0-20260929-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r2) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -106,6 +106,7 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260929-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r2) | 2026-09-29 | [`fe55488`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/fe554882e4f06cdd2579a77b37b04de605111a28) | radv: reduce cache flushing in radv_query_shader | Vulkan 1.4.363 |
 | [v26.3.0-20260929](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929) | 2026-09-29 | [`4cf0989`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4cf0989083d25b92d02c6fef2bed934ad77b4ecd) | venus: honor the virtio-gpu blob alignment | Vulkan 1.4.363 |
 | [v26.3.0-20260928-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928-r5) | 2026-09-28 | [`ae66688`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/ae6668842624250a45413e4ceeac0b3b1da0a060) | meson/gfxstream: drop leftover vars | Vulkan 1.4.363 |
 | [v26.3.0-20260928-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260928-r4) | 2026-09-28 | [`9f1e484`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9f1e484e2e96759b1b45e7247c0bf34d52fc71b6) | etnaviv: Use single buffer mode 3 with stencil-only surfaces | Vulkan 1.4.363 |
