@@ -8,7 +8,8 @@ cd "${1:?usage: apply_common.sh <mesa-dir>}"
 here="$(cd "$(dirname "$0")" && pwd)"
 
 for p in "$here/kgsl-syncobj-merge-ts-fd.patch" "$here/a8xx-cube-coord-sanitize.patch" \
-         "$here/a8xx-bindless-invalidate.patch" "$here/a8xx-kgsl-ib-vbo-alias.patch"; do
+         "$here/a8xx-bindless-invalidate.patch" "$here/a8xx-kgsl-ib-vbo-alias.patch" \
+         "$here/kgsl-zero-timeout-poll.patch"; do
 	echo "[common] applying $(basename "$p")"
 	rc=0
 	out="$(patch -p1 -N --fuzz=3 --no-backup-if-mismatch < "$p" 2>&1)" || rc=$?
@@ -25,3 +26,5 @@ grep -q "SP_GFX_BINDLESS_INVALIDATE" src/freedreno/vulkan/tu_cmd_buffer.h \
 	|| { echo "[common] a8xx-bindless-invalidate did not reach tu_cmd_buffer.h" >&2; exit 1; }
 grep -q "KGSL_MEMFLAGS_VBO" src/freedreno/vulkan/tu_knl_kgsl.cc \
 	|| { echo "[common] a8xx-kgsl-ib-vbo-alias did not reach tu_knl_kgsl.cc" >&2; exit 1; }
+grep -q "kgsl_timestamp_retired(fd, context_id, timestamp) ? VK_SUCCESS : VK_TIMEOUT" src/freedreno/vulkan/tu_knl_kgsl.cc \
+	|| { echo "[common] kgsl-zero-timeout-poll did not reach tu_knl_kgsl.cc" >&2; exit 1; }

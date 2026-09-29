@@ -27,3 +27,14 @@ a8xx-cube-coord-sanitize.patch, a8xx-bindless-invalidate.patch, a8xx-kgsl-ib-vbo
     idle; BOs holding IBs are fetched through a VBO alias that is unbound before the free
     (chip >= A8XX only).
   Max's mesh-shader and wave32 patches (0001/0002) are NOT carried.
+
+kgsl-zero-timeout-poll.patch (The412Banner, 2026-09-29; still in Mesa main)
+  wait_timestamp_safe() turned a poll (a timeout that is zero or already past) into
+  IOCTL_KGSL_DEVICE_WAITTIMESTAMP_CTXTID with timeout 0, which KGSL treats as "wait
+  forever". Mesa's emulated timeline semaphores poll from vk_sync_timeline_gc_locked on
+  every submit that signals a timeline, while holding the timeline mutex, so vkd3d-proton
+  (a timeline signal per submit plus a fence thread on the same mutex) ran CPU and GPU in
+  lock-step. A poll now reads IOCTL_KGSL_CMDSTREAM_READTIMESTAMP_CTXTID (retired) and
+  answers VK_SUCCESS / VK_TIMEOUT without waiting. Found on Bannerlator's Wayland adapter
+  (Pocket FIT A750): a D3D12 demo capped at ~615 fps went to 4335 fps with the same answer
+  given from outside the driver; X11 D3D12 (809 fps) had the same stall, milder.
