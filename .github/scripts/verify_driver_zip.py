@@ -37,6 +37,8 @@ VARIANT_MARKERS = {
     "regular": [],
     "a8xx": ["Adreno (TM) 825", "deck_emu"],
     "710-720-test": ["FD710", "FD720", "FD722"],
+    # A boolean in the device table: no string to look for. patches/8g2_oneui.py fails the build if it cannot apply.
+    "8g2-oneui": [],
 }
 WAYLAND_MARKERS = [
     "banner_ahb_v1",                                            # banner_ahb_wsi.py protocol

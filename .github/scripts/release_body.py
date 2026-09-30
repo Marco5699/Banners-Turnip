@@ -38,6 +38,10 @@ DRIVERS = [
         "variant": "710-720-test", "suffix": "-710-720-Test", "label": "A710 / A720 / A722", "kind": "Experimental",
         "gpus": "Adreno 710 / 720 / 722 (unverified on hardware)",
     },
+    {
+        "variant": "8g2-oneui", "suffix": "-8G2-OneUI", "label": "8 Gen 2 One UI", "kind": "Device-specific",
+        "gpus": "Adreno 740: Snapdragon 8 Gen 2 on newer firmware (Samsung One UI)",
+    },
 ]
 
 
@@ -207,6 +211,7 @@ def main():
         "regular": ("**Standard**", "Adreno 6xx / 7xx (8 Gen 3 and older)"),
         "a8xx": ("**A8xx** (experimental)", "Adreno 810 / 825 / 829 / 830 / 840 (8 Elite)"),
         "710-720-test": ("**A710 / A720 / A722** (experimental, untested on hardware)", "Adreno 710 / 720 / 722"),
+        "8g2-oneui": ("**8 Gen 2 One UI**", "Adreno 740 (8 Gen 2) with UI flicker, e.g. Samsung One UI"),
     }
     for d in DRIVERS:
         label, gpus = short[d["variant"]]
@@ -226,7 +231,10 @@ def main():
       "finished frame on the screen.")
     w("")
     w("**Tips:** A8xx: `TU_DEBUG=sysmem` if an A830 looks glitchy, `TU_DEBUG=deck_emu` if a game won't start. "
-      "A710 / A720 / A722: `TU_DEBUG=sysmem` (in Winlator also `WRAPPER_BLIT=1`).")
+      "A710 / A720 / A722: `TU_DEBUG=sysmem` (in Winlator also `WRAPPER_BLIT=1`). "
+      "8 Gen 2 One UI: only if the Standard driver makes the phone's UI glitch or flicker; on other 8 Gen 2 "
+      "devices it causes that glitch. The same switch without changing driver: "
+      "`FD_DEV_FEATURES=enable_tp_ubwc_flag_hint=1`.")
     w("")
 
     a8 = legs[("a8xx", "android")]["report"] or legs[("a8xx", "wayland")]["report"] or {}
@@ -264,6 +272,8 @@ def main():
     w(f"- **A8xx:** {a8_desc}.")
     w(f"- **A710 / A720 / A722:** " + ", ".join(link(x) for x in t7_scripts)
       + " from [Vauzi-17/710](https://github.com/Vauzi-17/710).")
+    w("- **8 Gen 2 One UI:** Standard plus " + link("patches/8g2_oneui.py")
+      + ": `enable_tp_ubwc_flag_hint` on for the Adreno 740 (Mesa leaves it off to match the older system driver).")
     w("- **Wayland zips:** the same commit and patches, built as Linux-style Vulkan drivers (KGSL, Wayland, bionic) "
       "with Bannerlator's zero-copy patch. CI checks each one before it is attached. They don't load as AdrenoTools "
       "drivers, and the X11 zips don't work as Wayland game drivers.")

@@ -136,6 +136,11 @@ jobs:
             extra_patch: ""
             extra_script: "patches/a710-720.py"
             meta_desc: "EXPERIMENTAL — Adds Adreno 710, 720, and 722 support on top of Mesa main with hardware-specific magic registers and tuned GPU properties. Unverified on real hardware — use sysmem mode. All other GPUs unaffected."
+          - variant: 8g2-oneui
+            suffix: "-8G2-OneUI"
+            extra_patch: ""
+            extra_script: "patches/a840v2.py:patches/8g2_oneui.py"
+            meta_desc: "Standard A6xx/A7xx driver with the Adreno 740 (Snapdragon 8 Gen 2) UBWC flag hint turned on, to match newer system drivers such as Samsung One UI and stop UI glitches and flicker. Only for 8 Gen 2 devices on newer firmware; on others it causes the glitch. All other GPUs unaffected."
 
     steps:
       - name: Checkout

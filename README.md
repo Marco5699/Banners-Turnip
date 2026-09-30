@@ -29,13 +29,14 @@ The three differ in what they link against, which is what decides where each one
 
 ## Driver Variants & Downloads
 
-Each release ships three drivers, each as three ZIPs built from the same Mesa commit and patches. Pick the driver for your GPU, then the ZIP for where you use it:
+Each release ships four drivers, each as three ZIPs built from the same Mesa commit and patches. Pick the driver for your GPU, then the ZIP for where you use it:
 
 | Driver | GPUs | X11 / AdrenoTools ZIP | Bannerlator Wayland ZIP | Linux runtime ZIP |
 | :--- | :--- | :--- | :--- | :--- |
 | **Standard** | Adreno 6xx / 7xx (Snapdragon 8 Gen 3 and older) | `Turnip-<tag>.zip` | `Turnip-<tag>-Wayland.zip` | `Turnip-<tag>-Linux.zip` |
 | **A8xx** (experimental) | Adreno 810 / 825 / 829 / 830 / 840 (Snapdragon 8 Elite) | `Turnip-<tag>-A8xx.zip` | `Turnip-<tag>-A8xx-Wayland.zip` | `Turnip-<tag>-A8xx-Linux.zip` |
 | **A710 / A720 / A722** (experimental) | Adreno 710 / 720 / 722 | `Turnip-<tag>-710-720-Test.zip` | `Turnip-<tag>-710-720-Test-Wayland.zip` | `Turnip-<tag>-710-720-Test-Linux.zip` |
+| **8 Gen 2 One UI** | Adreno 740 (Snapdragon 8 Gen 2) whose UI glitches with Standard, e.g. Samsung One UI | `Turnip-<tag>-8G2-OneUI.zip` | `Turnip-<tag>-8G2-OneUI-Wayland.zip` | `Turnip-<tag>-8G2-OneUI-Linux.zip` |
 
 - **X11 / AdrenoTools ZIP:** BannerHub/BCI, Winlator, Bannerlator X11 containers and any other AdrenoTools app. This is also the driver that **puts the finished frame on the screen** on every path below — it is the only one with the Android surface WSI.
 - **Wayland ZIP:** Bannerlator **Wayland containers** only. It's a Linux-style Vulkan driver (KGSL, Wayland, bionic) with Bannerlator's zero-copy patch, built by [`build_turnip_wayland.sh`](build_turnip_wayland.sh). It doesn't load as an AdrenoTools driver, and an X11 ZIP doesn't work as a Wayland game driver.
@@ -46,7 +47,7 @@ Each release ships three drivers, each as three ZIPs built from the same Mesa co
 
 ### Fixes in every driver
 
-These are bugs in Turnip's Adreno (KGSL) code that are **still in Mesa `main`**, so every ZIP carries a fix: Standard, A8xx and A710/720/722, for X11, Wayland and Linux alike. They live in [`patches/common/`](patches/common) and are applied by [`apply_common.sh`](patches/common/apply_common.sh), which fails the build if a fix goes missing. Each one is dropped once Mesa carries its own fix. Full notes: [`patches/common/SOURCE`](patches/common/SOURCE).
+These are bugs in Turnip's Adreno (KGSL) code that are **still in Mesa `main`**, so every ZIP carries a fix: Standard, A8xx, A710/720/722 and 8 Gen 2 One UI, for X11, Wayland and Linux alike. They live in [`patches/common/`](patches/common) and are applied by [`apply_common.sh`](patches/common/apply_common.sh), which fails the build if a fix goes missing. Each one is dropped once Mesa carries its own fix. Full notes: [`patches/common/SOURCE`](patches/common/SOURCE).
 
 | Fix | What was wrong | What it changes |
 | :--- | :--- | :--- |
@@ -57,6 +58,10 @@ These are bugs in Turnip's Adreno (KGSL) code that are **still in Mesa `main`**,
 ### A6xx / A7xx — Standard
 
 Mesa `main` plus the [fixes every driver carries](#fixes-in-every-driver), with no GPU-specific patches. Compatible with Adreno 600–700 series GPUs (Snapdragon 600–800 series, including 7 Gen and 8 Gen 1–3).
+
+### 8 Gen 2 One UI
+
+Standard plus [`8g2_oneui.py`](patches/8g2_oneui.py), which turns on `enable_tp_ubwc_flag_hint` for the Adreno 740. That setting has to match between every driver on the device, or scaled copies come out corrupted. Mesa leaves it off to match the older system driver most 8 Gen 2 devices ship. Newer firmware such as recent Samsung One UI turns it on, so with the Standard driver the phone's UI glitches or flickers. Use this driver only if you see that; on other 8 Gen 2 devices it causes the same glitch. To try it without changing driver, set `FD_DEV_FEATURES=enable_tp_ubwc_flag_hint=1` (Bannerlator has this as a checkbox in the container's graphics driver settings). Other GPUs are unaffected.
 
 ### A710 / A720 / A722 — Experimental / Work in Progress
 
