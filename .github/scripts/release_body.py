@@ -257,9 +257,17 @@ def main():
       path="docs/KGSL_ZERO_TIMEOUT_POLL.md") + ")).")
     w("- **No crash when a frame waits on two kinds of sync at once** (" + link("patches/common/kgsl-syncobj-merge-ts-fd.patch")
       + "). Cemu crashed on its first frame; proven fixed with Cemu, RPCS3 and Dolphin.")
-    w("- **Three Adreno 8xx GPU hang fixes** (" + link("patches/common/a8xx-cube-coord-sanitize.patch") + ", "
-      + link("patches/common/a8xx-bindless-invalidate.patch") + ", " + link("patches/common/a8xx-kgsl-ib-vbo-alias.patch")
-      + ") from Max (MaxsTechReview, WinNative). They only take effect on Adreno 8xx.")
+    wn = "patches/common/winnative/"
+    w("- **DirectX 12 Ultimate: mesh shaders + wave32** (" + link(wn + "0001-tu-Emulate-VK_EXT_mesh_shader-with-compute.patch")
+      + ", " + link(wn + "0002-tu-ir3-Support-a-required-subgroup-size-of-half-a-wa.patch")
+      + ") from Max (MaxsTechReview, WinNative). `VK_EXT_mesh_shader` is emulated with compute on Adreno 7xx and 8xx, "
+      "so VKD3D-Proton can offer mesh shaders to games that need them (FINAL FANTASY VII REBIRTH, Alan Wake 2); "
+      "render passes with mesh draws run in sysmem. Adreno 6xx doesn't get it.")
+    w("- **Four Adreno 8xx GPU hang fixes** (" + link(wn + "0003-ir3-Sanitize-cube-map-directions-on-A8XX.patch") + ", "
+      + link(wn + "0004-tu-Invalidate-bindless-descriptors-through-the-A8XX-.patch") + ", "
+      + link(wn + "0005-tu-kgsl-Fetch-A8XX-command-streams-through-a-virtual.patch") + ", "
+      + link(wn + "0006-tu-kgsl-Cache-retired-A8XX-IB-storage.patch")
+      + ") from Max. They only take effect on Adreno 8xx (`TU_KGSL_IB_CACHE=false` turns off the last one).")
     w("")
     w("<details>")
     w("<summary>Build details and checksums</summary>")

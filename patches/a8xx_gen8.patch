@@ -604,7 +604,7 @@ index 2a581a26a509..1189ca6d5f48 100644
  struct ir3_compiler {
     struct fd_device *dev;
     const struct fd_dev_id *dev_id;
-@@ -389,6 +396,52 @@ void ir3_shader_bisect_dump_id(struct ir3_shader_variant *v);
+@@ -389,5 +396,51 @@ void ir3_shader_bisect_dump_id(struct ir3_shader_variant *v);
  bool ir3_shader_bisect_select(struct ir3_shader_variant *v);
  bool ir3_shader_bisect_disasm_select(struct ir3_shader_variant *v);
  
@@ -656,9 +656,6 @@ index 2a581a26a509..1189ca6d5f48 100644
 +
  ENDC;
  
--#endif /* IR3_COMPILER_H_ */
-+#endif /* IR3_COMPILER_H_ */
-\ No newline at end of file
 diff --git a/src/freedreno/vulkan/tu_pipeline.cc b/src/freedreno/vulkan/tu_pipeline.cc
 index dba43f9a9c96..46508f0c0c82 100644
 --- a/src/freedreno/vulkan/tu_pipeline.cc
