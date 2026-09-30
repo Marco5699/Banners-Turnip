@@ -107,12 +107,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`4da08cb`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4da08cb8adfbdc103bc517b45040a19957b7404d) |
+| **Commit** | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) |
 | **Commit date** | 2026-09-30 |
-| **Commit title** | llvmpipe: remove defunct null-gs-tokens support |
+| **Commit title** | ir3: Unify disk shader cache serialization/deserialization |
 | **Build date** | 20260930 |
 | **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
-| **Release** | [v26.3.0-20260930-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r5) |
+| **Release** | [v26.3.0-20260930-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r6) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -122,6 +122,7 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260930-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r6) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r5) | 2026-09-30 | [`4da08cb`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4da08cb8adfbdc103bc517b45040a19957b7404d) | llvmpipe: remove defunct null-gs-tokens support | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r4) | 2026-09-30 | [`cec59b2`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/cec59b299704edc442d930ea9e06ab2edcf5ad7b) | mesa/st: use nir_trim_vector | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r3) | 2026-09-30 | [`49162a0`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/49162a0ba8f3647917bc4c94d13eea6b51a1e49f) | radv/video: Only report BT709/Limited support for RGB conversion on VCN5 | Vulkan 1.4.363 |
