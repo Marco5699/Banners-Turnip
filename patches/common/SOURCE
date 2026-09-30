@@ -13,20 +13,34 @@ kgsl-syncobj-merge-ts-fd.patch (DroidDeck, 2026-09-26; still in Mesa main)
   Device-proven on the Linux leg (Cemu SM3DW/Deus Ex/Wipeout 3; RPCS3, Dolphin,
   Steam unchanged). Drop it once Mesa main carries an equivalent fix.
 
-a8xx-cube-coord-sanitize.patch, a8xx-bindless-invalidate.patch, a8xx-kgsl-ib-vbo-alias.patch
-  (Max / MaxsTechReview, WinNative-Emu/Drivers linux/patches 0003-0005, 2026-09-28, GPL-3.0)
-  A8XX GPU hangs found in FINAL FANTASY VII REBIRTH:
-  - cube-coord-sanitize: sampling a cube map with a NaN/zero direction hangs A8XX; the
-    shader now clamps NaN to 0 and turns the zero vector into +Z (quirk set on a8xx_base only).
-  - bindless-invalidate: A8XX dropped the bindless bits of SP_UPDATE_CNTL, so stale bindless
-    descriptors stayed cached; invalidate through SP_GFX/CS_BINDLESS_INVALIDATE instead, also
-    at hw init and before blits. Older chips keep the SP_UPDATE_CNTL write unchanged.
-    Adapted: Max's descriptor-set hunk targets tu6_emit_bindless_bases, which his mesh-shader
-    patch adds; here it replaces the same write in tu6_emit_descriptor_sets.
-  - kgsl-ib-vbo-alias: freeing command-stream memory with GPUMEM_FREE_ID hangs A8XX even when
-    idle; BOs holding IBs are fetched through a VBO alias that is unbound before the free
-    (chip >= A8XX only).
-  Max's mesh-shader and wave32 patches (0001/0002) are NOT carried.
+winnative/0001-0006 (Max / MaxsTechReview, WinNative-Emu/Drivers linux/patches, GPL-3.0;
+  0001-0005 2026-09-27/28, 0006 c71f600a 2026-09-29). Kept under Max's own names and numbers so
+  they can be diffed against his repo; they build on each other and apply in that order, after
+  kgsl-syncobj-merge-ts-fd and before kgsl-zero-timeout-poll. Replaces our earlier renamed copies of
+  0003-0005 (a8xx-*.patch, 2026-09-28), which had 0004 adapted because 0001 was missing.
+  - 0001 mesh shaders: VK_EXT_mesh_shader emulated with compute. Task/mesh shaders write into a
+    device ring that a generated vertex shader draws; render passes with mesh draws use sysmem.
+    Exposed on chip >= A7XX with >= 32 KiB compute shared memory.
+    REBASED onto Mesa 4da08cb (2026-09-30): upstream folded tu_shader_serialize/deserialize into
+    tu_shader_cache_process_blob(), so Max's two MESA_SHADER_COMPUTE blob hunks are one
+    io.bytes(&shader->mesh) case there. At fuzz 3 the old hunks landed outside any function.
+    Everything else is Max's diff unchanged.
+  - 0002 wave32: a required subgroup size of 32 on A8XX's 64-wide waves (each half-wave is a
+    subgroup), so vkd3d-proton accepts WaveSize(32) shaders.
+  - 0003 cube-coord sanitize: a NaN/zero cube-map direction hangs A8XX; clamp NaN to 0 and turn the
+    zero vector into +Z (quirk on a8xx_base only).
+  - 0004 bindless invalidate: A8XX's SP_UPDATE_CNTL has no bindless bits; invalidate through
+    SP_GFX/CS_BINDLESS_INVALIDATE. Older chips unchanged.
+  - 0005 IB VBO alias: freeing command-stream memory with GPUMEM_FREE_ID hangs A8XX; IBs are fetched
+    through a KGSL VBO alias that is unbound before the free (A8XX only).
+  - 0006 IB cache: reuse retired A8XX IB BOs + aliases instead of unbind/free churn during play
+    (per-device, 256 MiB idle cap, freed at device destroy). TU_KGSL_IB_CACHE=false disables it.
+    Max: RedMagic A840v2 passed movement/menus/exit in FF7 Rebirth; long play + warm relaunch
+    still unverified on his side.
+  All six verified 2026-09-30 on Mesa 4da08cb for every leg's recipe (Standard, A8xx + gen8 stack,
+  710-720, 8G2 One UI; Android, Wayland pre-steps, Linux pre-patches): zero rejects, zero fuzz.
+  When Mesa moves and one stops applying, rebase it here (or pull Max's rebase) - never drop it
+  silently.
 
 kgsl-zero-timeout-poll.patch (The412Banner, 2026-09-29; still in Mesa main)
   wait_timestamp_safe() turned a poll (a timeout that is zero or already past) into

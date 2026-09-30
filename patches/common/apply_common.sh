@@ -7,8 +7,9 @@ set -eu
 cd "${1:?usage: apply_common.sh <mesa-dir>}"
 here="$(cd "$(dirname "$0")" && pwd)"
 
-for p in "$here/kgsl-syncobj-merge-ts-fd.patch" "$here/a8xx-cube-coord-sanitize.patch" \
-         "$here/a8xx-bindless-invalidate.patch" "$here/a8xx-kgsl-ib-vbo-alias.patch" \
+# Order: our syncobj fix, Max's WinNative series in its own number order (winnative/0001-0006,
+# which build on each other), then our poll fix.
+for p in "$here/kgsl-syncobj-merge-ts-fd.patch" "$here"/winnative/0*.patch \
          "$here/kgsl-zero-timeout-poll.patch"; do
 	echo "[common] applying $(basename "$p")"
 	rc=0
@@ -16,15 +17,24 @@ for p in "$here/kgsl-syncobj-merge-ts-fd.patch" "$here/a8xx-cube-coord-sanitize.
 	echo "$out" | sed 's/^/    /'
 	[ "$rc" = 0 ] || { echo "[common] $(basename "$p") did not apply cleanly (patch exit $rc) - rebase it onto this Mesa, or drop it if upstream has the fix" >&2; exit 1; }
 done
+[ "$(ls "$here"/winnative/0*.patch | wc -l)" = 6 ] || { echo "[common] expected 6 patches in winnative/" >&2; exit 1; }
 
 # Assert the result rather than trust the patch.
 [ "$(grep -c "int ret_fd = kgsl_syncobj_ts_to_fd(&ret)" src/freedreno/vulkan/tu_knl_kgsl.cc)" = 2 ] \
 	|| { echo "[common] kgsl-syncobj-merge-ts-fd did not reach tu_knl_kgsl.cc" >&2; exit 1; }
+[ -f src/freedreno/vulkan/tu_mesh.cc ] && grep -q "EXT_mesh_shader = tu_has_mesh_shader(device)" src/freedreno/vulkan/tu_device.cc \
+	|| { echo "[common] winnative/0001 (mesh shaders) did not reach tu_mesh.cc / tu_device.cc" >&2; exit 1; }
+grep -q "tu_mesh.cc" src/freedreno/vulkan/meson.build \
+	|| { echo "[common] winnative/0001 (mesh shaders) did not reach meson.build" >&2; exit 1; }
+grep -q "HALF_SUBGROUP_SIZE 32" src/freedreno/ir3/ir3_lower_subgroups.c \
+	|| { echo "[common] winnative/0002 (wave32 subgroups) did not reach ir3_lower_subgroups.c" >&2; exit 1; }
 grep -q "cube_coord_hang_quirk = True" src/freedreno/common/freedreno_devices.py \
-	|| { echo "[common] a8xx-cube-coord-sanitize did not reach freedreno_devices.py" >&2; exit 1; }
+	|| { echo "[common] winnative/0003 (cube-coord sanitize) did not reach freedreno_devices.py" >&2; exit 1; }
 grep -q "SP_GFX_BINDLESS_INVALIDATE" src/freedreno/vulkan/tu_cmd_buffer.h \
-	|| { echo "[common] a8xx-bindless-invalidate did not reach tu_cmd_buffer.h" >&2; exit 1; }
+	|| { echo "[common] winnative/0004 (bindless invalidate) did not reach tu_cmd_buffer.h" >&2; exit 1; }
 grep -q "KGSL_MEMFLAGS_VBO" src/freedreno/vulkan/tu_knl_kgsl.cc \
-	|| { echo "[common] a8xx-kgsl-ib-vbo-alias did not reach tu_knl_kgsl.cc" >&2; exit 1; }
+	|| { echo "[common] winnative/0005 (IB VBO alias) did not reach tu_knl_kgsl.cc" >&2; exit 1; }
+grep -q "KGSL_IB_CACHE_MAX_BYTES" src/freedreno/vulkan/tu_knl_kgsl.cc \
+	|| { echo "[common] winnative/0006 (IB cache) did not reach tu_knl_kgsl.cc" >&2; exit 1; }
 grep -q "kgsl_timestamp_retired(fd, context_id, timestamp) ? VK_SUCCESS : VK_TIMEOUT" src/freedreno/vulkan/tu_knl_kgsl.cc \
 	|| { echo "[common] kgsl-zero-timeout-poll did not reach tu_knl_kgsl.cc" >&2; exit 1; }
