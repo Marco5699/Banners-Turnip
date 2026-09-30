@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20260930](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930) | 2026-09-29 | [`a995eae`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a995eaeda4339adb0278b06dcc98136011feac36) | tu: Make CmdClearAttachments record TU_ACCESS_BLIT_WRITE_GMEM access | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r6) | 2026-09-29 | [`a995eae`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a995eaeda4339adb0278b06dcc98136011feac36) | tu: Make CmdClearAttachments record TU_ACCESS_BLIT_WRITE_GMEM access | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r5) | 2026-09-29 | [`9af228c`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9af228cdabeb6fc8626866a12b4dd5a033b61c8a) | nv30: advertise blend_equation_separate and npot_textures on nv30 to get gles 2.0 | Vulkan 1.4.363 |
 | [v26.3.0-20260929-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260929-r4) | 2026-09-29 | [`9af228c`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9af228cdabeb6fc8626866a12b4dd5a033b61c8a) | nv30: advertise blend_equation_separate and npot_textures on nv30 to get gles 2.0 | Vulkan 1.4.363 |
