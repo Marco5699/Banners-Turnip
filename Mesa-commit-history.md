@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261001-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r2) | 2026-10-01 | [`1d136f0`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/1d136f09a0902270af2ff9243f5e787355b1e871) | etnaviv: Use a border shadow for CLAMP_TO_BORDER | Vulkan 1.4.363 |
 | [v26.3.0-20261001](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r7](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r7) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r6) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
