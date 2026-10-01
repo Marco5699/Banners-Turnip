@@ -107,12 +107,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`8ea6e9d`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/8ea6e9dd417b99ef2e368436bfd567c81f23b0b2) |
+| **Commit** | [`022b8b1`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/022b8b1871d3049a4bb9032cb3e294095f52a2f3) |
 | **Commit date** | 2026-10-01 |
-| **Commit title** | docs: add sha sum for 26.2.4 |
+| **Commit title** | radv/meta: Remove old fill and copy meta shaders and implementation |
 | **Build date** | 20261001 |
 | **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
-| **Release** | [v26.3.0-20261001-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r3) |
+| **Release** | [v26.3.0-20261001-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r4) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -122,10 +122,10 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261001-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r4) | 2026-10-01 | [`022b8b1`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/022b8b1871d3049a4bb9032cb3e294095f52a2f3) | radv/meta: Remove old fill and copy meta shaders and implementation | Vulkan 1.4.363 |
 | [v26.3.0-20261001-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r3) | 2026-10-01 | [`8ea6e9d`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/8ea6e9dd417b99ef2e368436bfd567c81f23b0b2) | docs: add sha sum for 26.2.4 | Vulkan 1.4.363 |
 | [v26.3.0-20261001-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r2) | 2026-10-01 | [`1d136f0`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/1d136f09a0902270af2ff9243f5e787355b1e871) | etnaviv: Use a border shadow for CLAMP_TO_BORDER | Vulkan 1.4.363 |
 | [v26.3.0-20261001](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001) | 2026-10-01 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
-| [v26.3.0-20260930-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r5) | 2026-09-30 | [`4da08cb`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4da08cb8adfbdc103bc517b45040a19957b7404d) | llvmpipe: remove defunct null-gs-tokens support | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
