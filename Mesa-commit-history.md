@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261001](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r7](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r7) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r6](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r6) | 2026-09-30 | [`9ac80d5`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ac80d5c43c46e85700a75ca34bd1036ee15467e) | ir3: Unify disk shader cache serialization/deserialization | Vulkan 1.4.363 |
 | [v26.3.0-20260930-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20260930-r5) | 2026-09-30 | [`4da08cb`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4da08cb8adfbdc103bc517b45040a19957b7404d) | llvmpipe: remove defunct null-gs-tokens support | Vulkan 1.4.363 |
