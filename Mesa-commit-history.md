@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261002-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r5) | 2026-10-02 | [`4f554da`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4f554dafa8dcd81048916f1382f561ed134db8ec) | anv: Fix parent child count map size | Vulkan 1.4.363 |
 | [v26.3.0-20261002-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r4) | 2026-10-02 | [`63086e0`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/63086e0469177bcf5a6bb62220c03d35da9fdde7) | gallivm: truncate before zext | Vulkan 1.4.363 |
 | [v26.3.0-20261002-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r3) | 2026-10-02 | [`3952297`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/39522975783687f374e17b5df051b5ff97428ec3) | v3dv: Advertise VK_KHR_map_memory2 | Vulkan 1.4.363 |
 | [v26.3.0-20261002-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r2) | 2026-10-02 | [`a3c22fa`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a3c22fa45bb12003b4e0648090a23d6e5755be6a) | etnaviv: Program native advanced blend modes | Vulkan 1.4.363 |
