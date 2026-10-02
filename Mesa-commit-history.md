@@ -5,6 +5,7 @@ A complete log of every Banners-Turnip release — newest first. Each entry link
 <!-- BUILDS_TABLE_START -->
 | Tag | Date | Mesa Commit | Commit Title | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261002](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002) | 2026-10-02 | [`bfd3ede`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/bfd3edeff19e3d9031b9d60af07969f26f309cf1) | util/android: Only read from debug/vendor prefixes on Android T+ | Vulkan 1.4.363 |
 | [v26.3.0-20261001-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r4) | 2026-10-01 | [`022b8b1`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/022b8b1871d3049a4bb9032cb3e294095f52a2f3) | radv/meta: Remove old fill and copy meta shaders and implementation | Vulkan 1.4.363 |
 | [v26.3.0-20261001-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r3) | 2026-10-01 | [`8ea6e9d`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/8ea6e9dd417b99ef2e368436bfd567c81f23b0b2) | docs: add sha sum for 26.2.4 | Vulkan 1.4.363 |
 | [v26.3.0-20261001-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261001-r2) | 2026-10-01 | [`1d136f0`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/1d136f09a0902270af2ff9243f5e787355b1e871) | etnaviv: Use a border shadow for CLAMP_TO_BORDER | Vulkan 1.4.363 |
