@@ -107,12 +107,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`888a19e`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/888a19e27844002061f4e0b7e98b293ccc352160) |
+| **Commit** | [`8fc4981`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/8fc4981d2d25a32732296a90bf9eaa0371f8c715) |
 | **Commit date** | 2026-10-03 |
-| **Commit title** | driconf: Add ignore_map_invalidate_buffer option |
+| **Commit title** | util: Add p_atomic_dec_not_one helper |
 | **Build date** | 20261003 |
 | **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
-| **Release** | [v26.3.0-20261003](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003) |
+| **Release** | [v26.3.0-20261003-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003-r2) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -122,6 +122,7 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261003-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003-r2) | 2026-10-03 | [`8fc4981`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/8fc4981d2d25a32732296a90bf9eaa0371f8c715) | util: Add p_atomic_dec_not_one helper | Vulkan 1.4.363 |
 | [v26.3.0-20261003](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003) | 2026-10-03 | [`888a19e`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/888a19e27844002061f4e0b7e98b293ccc352160) | driconf: Add ignore_map_invalidate_buffer option | Vulkan 1.4.363 |
 | [v26.3.0-20261002-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r5) | 2026-10-02 | [`4f554da`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4f554dafa8dcd81048916f1382f561ed134db8ec) | anv: Fix parent child count map size | Vulkan 1.4.363 |
 | [v26.3.0-20261002-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r4) | 2026-10-02 | [`63086e0`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/63086e0469177bcf5a6bb62220c03d35da9fdde7) | gallivm: truncate before zext | Vulkan 1.4.363 |
