@@ -107,12 +107,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`e5f0687`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/e5f0687867f5c5e88619175d9b0442f8560e8d53) |
-| **Commit date** | 2026-10-03 |
-| **Commit title** | etnaviv: Implement invalidate_resource(..) |
-| **Build date** | 20261003 |
+| **Commit** | [`127b431`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/127b431b9453728c9b29fd2953e0d93b8d5e3a79) |
+| **Commit date** | 2026-10-04 |
+| **Commit title** | anv: align shader heap size allocation to alignment |
+| **Build date** | 20261004 |
 | **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
-| **Release** | [v26.3.0-20261003-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003-r4) |
+| **Release** | [v26.3.0-20261004](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261004) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -122,11 +122,10 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261004](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261004) | 2026-10-04 | [`127b431`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/127b431b9453728c9b29fd2953e0d93b8d5e3a79) | anv: align shader heap size allocation to alignment | Vulkan 1.4.363 |
 | [v26.3.0-20261003-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003-r4) | 2026-10-03 | [`e5f0687`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/e5f0687867f5c5e88619175d9b0442f8560e8d53) | etnaviv: Implement invalidate_resource(..) | Vulkan 1.4.363 |
 | [v26.3.0-20261003-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003-r3) | 2026-10-03 | [`a4a4700`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/a4a47003a194effad8cabe727f74985e9417476f) | radv: Document default kernel driver for GFX6-7 | Vulkan 1.4.363 |
 | [v26.3.0-20261003-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003-r2) | 2026-10-03 | [`8fc4981`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/8fc4981d2d25a32732296a90bf9eaa0371f8c715) | util: Add p_atomic_dec_not_one helper | Vulkan 1.4.363 |
-| [v26.3.0-20261003](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261003) | 2026-10-03 | [`888a19e`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/888a19e27844002061f4e0b7e98b293ccc352160) | driconf: Add ignore_map_invalidate_buffer option | Vulkan 1.4.363 |
-| [v26.3.0-20261002-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261002-r5) | 2026-10-02 | [`4f554da`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/4f554dafa8dcd81048916f1382f561ed134db8ec) | anv: Fix parent child count map size | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
