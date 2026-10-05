@@ -107,12 +107,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`84673c2`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/84673c27310cd93c2df3c0dbf6d1b474e915578f) |
+| **Commit** | [`70c4c01`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/70c4c018cbe5b78a1db7e9413bc7e511b366fd95) |
 | **Commit date** | 2026-10-05 |
-| **Commit title** | broadcom/ci: update expected list |
+| **Commit title** | lavapipe: drop LVP_SNORM_BLEND workaround |
 | **Build date** | 20261005 |
-| **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
-| **Release** | [v26.3.0-20261005](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261005) |
+| **Downloads** | X11 / AdrenoTools: 2 ZIPs · Bannerlator Wayland: 2 ZIPs · Linux runtime: 2 ZIPs |
+| **Release** | [v26.3.0-20261005-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261005-r2) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -122,9 +122,8 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261005-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261005-r2) | 2026-10-05 | [`70c4c01`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/70c4c018cbe5b78a1db7e9413bc7e511b366fd95) | lavapipe: drop LVP_SNORM_BLEND workaround | Vulkan 1.4.363 |
 | [v26.3.0-20261005](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261005) | 2026-10-05 | [`84673c2`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/84673c27310cd93c2df3c0dbf6d1b474e915578f) | broadcom/ci: update expected list | Vulkan 1.4.363 |
-| [v26.3.0-20261004-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261004-r2) | 2026-10-04 | [`c126acd`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/c126acd85a645728bcecaa164d7d7c928438e842) | people: sync Alyssa with .mailmap | Vulkan 1.4.363 |
-| [v26.3.0-20261004](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261004) | 2026-10-04 | [`127b431`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/127b431b9453728c9b29fd2953e0d93b8d5e3a79) | anv: align shader heap size allocation to alignment | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
