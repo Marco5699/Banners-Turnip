@@ -7,7 +7,7 @@ set -eu
 cd "${1:?usage: apply_common.sh <mesa-dir>}"
 here="$(cd "$(dirname "$0")" && pwd)"
 
-# Max's WinNative series (patches/a8xx-winnative/0001-0006: mesh shaders, wave32, A8xx hang fixes)
+# Max's WinNative series (patches/a8xx-winnative/0001-0005: mesh shaders, wave32, A8xx hang fixes)
 # goes on the A8xx driver only. Mesh shaders and wave32 also switch on for A7xx (and wave32 for
 # A6xx gen4), where they can steer DX12 games onto slower emulated paths, so the A6xx/A7xx drivers
 # carry only our fixes. The A8xx driver is the one whose EXTRA_PATCH is the gen8 stack.
@@ -16,8 +16,8 @@ case "${EXTRA_PATCH:-}" in *a8xx_gen8*) a8xx=1 ;; esac
 series=("$here/kgsl-syncobj-merge-ts-fd.patch")
 if [ "$a8xx" = 1 ]; then
 	series+=("$here"/../a8xx-winnative/0*.patch)
-	[ "$(ls "$here"/../a8xx-winnative/0*.patch | wc -l)" = 6 ] \
-		|| { echo "[common] expected 6 patches in a8xx-winnative/" >&2; exit 1; }
+	[ "$(ls "$here"/../a8xx-winnative/0*.patch | wc -l)" = 5 ] \
+		|| { echo "[common] expected 5 patches in a8xx-winnative/" >&2; exit 1; }
 fi
 series+=("$here/kgsl-zero-timeout-poll.patch")
 echo "[common] driver: $([ "$a8xx" = 1 ] && echo "A8xx (our fixes + Max's series)" || echo "A6xx/A7xx (our fixes only)")"
@@ -46,8 +46,6 @@ if [ "$a8xx" = 1 ]; then
 		|| { echo "[common] winnative/0004 (bindless invalidate) did not reach tu_cmd_buffer.h" >&2; exit 1; }
 	grep -q "KGSL_MEMFLAGS_VBO" src/freedreno/vulkan/tu_knl_kgsl.cc \
 		|| { echo "[common] winnative/0005 (IB VBO alias) did not reach tu_knl_kgsl.cc" >&2; exit 1; }
-	grep -q "KGSL_IB_CACHE_MAX_BYTES" src/freedreno/vulkan/tu_knl_kgsl.cc \
-		|| { echo "[common] winnative/0006 (IB cache) did not reach tu_knl_kgsl.cc" >&2; exit 1; }
 else
 	[ ! -f src/freedreno/vulkan/tu_mesh.cc ] \
 		|| { echo "[common] Max's mesh patch reached a non-A8xx driver" >&2; exit 1; }

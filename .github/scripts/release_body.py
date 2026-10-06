@@ -260,13 +260,13 @@ def main():
     w("")
     wn = "patches/a8xx-winnative/"
     w("**🧩 A8xx driver only:** Max's WinNative series (MaxsTechReview, " + link(wn + "0001-tu-Emulate-VK_EXT_mesh_shader-with-compute.patch")
-      + " … " + link(wn + "0006-tu-kgsl-Cache-retired-A8XX-IB-storage.patch") + "). The A6xx / A7xx drivers carry only the fixes above.")
+      + " … " + link(wn + "0005-tu-kgsl-Fetch-A8XX-command-streams-through-a-virtual.patch") + "). The A6xx / A7xx drivers carry only the fixes above.")
     w("")
     w("- **DirectX 12 Ultimate: mesh shaders + wave32** (0001, 0002). `VK_EXT_mesh_shader` is emulated with compute, "
       "so VKD3D-Proton can offer mesh shaders to games that need them (FINAL FANTASY VII REBIRTH, Alan Wake 2); "
       "render passes with mesh draws run in sysmem.")
-    w("- **Four Adreno 8xx GPU hang fixes** (0003-0006): cube-map directions, bindless descriptors, command-stream "
-      "memory and its reuse (`TU_KGSL_IB_CACHE=false` turns off the last one).")
+    w("- **Three Adreno 8xx GPU hang fixes** (0003-0005): cube-map directions, bindless descriptors, command-stream "
+      "memory. Max's IB cache (0006) is left out: it broke the Linux driver on some Adreno 840s.")
     w("")
     w("<details>")
     w("<summary>Build details and checksums</summary>")
