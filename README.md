@@ -112,12 +112,12 @@ This fork adds [`patches/a845_experimental.py`](patches/a845_experimental.py) fo
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`c2188da`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/c2188da5409b8dcf574480365202f25562856a8d) |
+| **Commit** | [`9543e03`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9543e038f63e4f3fc7e1ac9d4b4de0f9a828e58e) |
 | **Commit date** | 2026-10-06 |
-| **Commit title** | pan/nir: Rework b2i/b2f lowering |
+| **Commit title** | etnaviv: Move disk_cache into etna_screen |
 | **Build date** | 20261006 |
-| **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
-| **Release** | [v26.3.0-20261006-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r5) |
+| **Downloads** | X11 / AdrenoTools: 5 ZIPs · Bannerlator Wayland: 5 ZIPs · Linux runtime: 5 ZIPs |
+| **Release** | [v26.3.0-20261006](https://github.com/Marco5699/Banners-Turnip/releases/tag/v26.3.0-20261006) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -127,11 +127,7 @@ This fork adds [`patches/a845_experimental.py`](patches/a845_experimental.py) fo
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
-| [v26.3.0-20261006-r5](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r5) | 2026-10-06 | [`c2188da`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/c2188da5409b8dcf574480365202f25562856a8d) | pan/nir: Rework b2i/b2f lowering | Vulkan 1.4.363 |
-| [v26.3.0-20261006-r4](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r4) | 2026-10-06 | [`2c5d7f4`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/2c5d7f4362225748a5de78e4469b22888ddd75bb) | radv: force exact GLSLstd450Fma for No Man Sky | Vulkan 1.4.363 |
-| [v26.3.0-20261006-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r3) | 2026-10-06 | [`21500c6`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/21500c65d69387f927c8d0a0b737d6edaead1535) | crnm: group argument definitions | Vulkan 1.4.363 |
-| [v26.3.0-20261006-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r2) | 2026-10-06 | [`755de2b`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/755de2b7768f702d7e867656cc15359e4f8b26f9) | kraid: Set lower_hadd64 | Vulkan 1.4.363 |
-| [v26.3.0-20261006](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006) | 2026-10-06 | [`7e33240`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/7e33240734c26168ef36b39754d2fba81931459f) | kraid: Properly handle OpCopy of 64-bit FAU pre-v12 | Vulkan 1.4.363 |
+| [v26.3.0-20261006](https://github.com/Marco5699/Banners-Turnip/releases/tag/v26.3.0-20261006) | 2026-10-06 | [`9543e03`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/9543e038f63e4f3fc7e1ac9d4b4de0f9a828e58e) | etnaviv: Move disk_cache into etna_screen | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
