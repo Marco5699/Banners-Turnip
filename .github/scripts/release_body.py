@@ -35,6 +35,10 @@ DRIVERS = [
         "gpus": "Adreno 840 / 830 / 829 / 825 / 812 / 810: Snapdragon 8 Elite",
     },
     {
+        "variant": "a845-test", "suffix": "-A845-Test", "label": "A845 Test", "kind": "Experimental bring-up",
+        "gpus": "Adreno 845 / SM8950, KGSL chip_id 0x44041430 (A840 GPUInfo alias; bring-up only)",
+    },
+    {
         "variant": "710-720-test", "suffix": "-710-720-Test", "label": "A710 / A720 / A722", "kind": "Experimental",
         "gpus": "Adreno 710 / 720 / 722 (unverified on hardware)",
     },
@@ -210,6 +214,7 @@ def main():
     short = {
         "regular": ("**Standard**", "Adreno 6xx / 7xx (8 Gen 3 and older)"),
         "a8xx": ("**A8xx** (experimental)", "Adreno 810 / 812 / 825 / 829 / 830 / 840 (8 Elite)"),
+        "a845-test": ("**A845 Test** (experimental bring-up)", "Adreno 845 / SM8950 · chip_id 0x44041430"),
         "710-720-test": ("**A710 / A720 / A722** (experimental, untested on hardware)", "Adreno 710 / 720 / 722"),
         "8g2-oneui": ("**8 Gen 2 One UI**", "Adreno 740 (8 Gen 2) with UI flicker, e.g. Samsung One UI"),
     }
