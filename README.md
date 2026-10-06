@@ -35,6 +35,7 @@ Each release ships four drivers, each as three ZIPs built from the same Mesa com
 | :--- | :--- | :--- | :--- | :--- |
 | **Standard** | Adreno 6xx / 7xx (Snapdragon 8 Gen 3 and older) | `Turnip-<tag>.zip` | `Turnip-<tag>-Wayland.zip` | `Turnip-<tag>-Linux.zip` |
 | **A8xx** (experimental) | Adreno 810 / 825 / 829 / 830 / 840 (Snapdragon 8 Elite) | `Turnip-<tag>-A8xx.zip` | `Turnip-<tag>-A8xx-Wayland.zip` | `Turnip-<tag>-A8xx-Linux.zip` |
+| **A845 Test** (bring-up only) | Adreno 845 / SM8950 · KGSL `0x44041430` (temporarily aliases A840 GPUInfo) | `Turnip-<tag>-A845-Test.zip` | `Turnip-<tag>-A845-Test-Wayland.zip` | `Turnip-<tag>-A845-Test-Linux.zip` |
 | **A710 / A720 / A722** (experimental) | Adreno 710 / 720 / 722 | `Turnip-<tag>-710-720-Test.zip` | `Turnip-<tag>-710-720-Test-Wayland.zip` | `Turnip-<tag>-710-720-Test-Linux.zip` |
 | **8 Gen 2 One UI** | Adreno 740 (Snapdragon 8 Gen 2) whose UI glitches with Standard, e.g. Samsung One UI | `Turnip-<tag>-8G2-OneUI.zip` | `Turnip-<tag>-8G2-OneUI-Wayland.zip` | `Turnip-<tag>-8G2-OneUI-Linux.zip` |
 
@@ -78,6 +79,10 @@ Targets Adreno 800-series (Snapdragon 8 Elite — A810, A825, A829, A830, A840).
 | [`a8xx-winnative/0003`](patches/a8xx-winnative/0003-ir3-Sanitize-cube-map-directions-on-A8XX.patch), [`0004`](patches/a8xx-winnative/0004-tu-Invalidate-bindless-descriptors-through-the-A8XX-.patch), [`0005`](patches/a8xx-winnative/0005-tu-kgsl-Fetch-A8XX-command-streams-through-a-virtual.patch) — *A8xx GPU hangs* | Three Adreno 8xx hangs found in FINAL FANTASY VII REBIRTH: a cube-map lookup with an empty direction, stale bindless descriptors, and freeing command memory. Each fix only takes effect on Adreno 8xx; older GPUs are unchanged. Max's IB cache (0006) is left out: it broke the Linux driver on some Adreno 840s. From Max, as above. |
 
 Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game won't start. **Use at your own risk.**
+
+#### A845 / SM8950 bring-up test
+
+This fork adds [`patches/a845_experimental.py`](patches/a845_experimental.py) for the observed retail Adreno 845 KGSL chip ID `0x44041430`. It registers that ID on the existing A840 GPUInfo only as a diagnostic bring-up probe, so Turnip can move past the initial `VK_ERROR_INCOMPATIBLE_DRIVER` / unsupported-device check. This is **not native A845 support** and may hang the GPU, render incorrectly, or fail later. The dedicated `-A845-Test` artifacts keep this experiment separate from the normal A8xx driver.
 
 ---
 
