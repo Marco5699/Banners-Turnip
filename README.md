@@ -107,12 +107,12 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 | :--- | :--- |
 | **Mesa version** | 26.3.0 |
 | **Vulkan version** | Vulkan 1.4.363 |
-| **Commit** | [`755de2b`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/755de2b7768f702d7e867656cc15359e4f8b26f9) |
+| **Commit** | [`21500c6`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/21500c65d69387f927c8d0a0b737d6edaead1535) |
 | **Commit date** | 2026-10-06 |
-| **Commit title** | kraid: Set lower_hadd64 |
+| **Commit title** | crnm: group argument definitions |
 | **Build date** | 20261006 |
-| **Downloads** | X11 / AdrenoTools: 2 ZIPs · Bannerlator Wayland: 2 ZIPs · Linux runtime: 2 ZIPs |
-| **Release** | [v26.3.0-20261006-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r2) |
+| **Downloads** | X11 / AdrenoTools: 4 ZIPs · Bannerlator Wayland: 4 ZIPs · Linux runtime: 4 ZIPs |
+| **Release** | [v26.3.0-20261006-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r3) |
 <!-- LATEST_BUILD_END -->
 
 ---
@@ -122,10 +122,10 @@ Tips: `TU_DEBUG=sysmem` if an A830 looks glitchy; `TU_DEBUG=deck_emu` if a game 
 <!-- RECENT_BUILDS_START -->
 | Tag | Date | Commit | Description | Vulkan |
 | :--- | :--- | :--- | :--- | :--- |
+| [v26.3.0-20261006-r3](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r3) | 2026-10-06 | [`21500c6`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/21500c65d69387f927c8d0a0b737d6edaead1535) | crnm: group argument definitions | Vulkan 1.4.363 |
 | [v26.3.0-20261006-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006-r2) | 2026-10-06 | [`755de2b`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/755de2b7768f702d7e867656cc15359e4f8b26f9) | kraid: Set lower_hadd64 | Vulkan 1.4.363 |
 | [v26.3.0-20261006](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261006) | 2026-10-06 | [`7e33240`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/7e33240734c26168ef36b39754d2fba81931459f) | kraid: Properly handle OpCopy of 64-bit FAU pre-v12 | Vulkan 1.4.363 |
 | [v26.3.0-20261005-r2](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261005-r2) | 2026-10-05 | [`70c4c01`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/70c4c018cbe5b78a1db7e9413bc7e511b366fd95) | lavapipe: drop LVP_SNORM_BLEND workaround | Vulkan 1.4.363 |
-| [v26.3.0-20261005](https://github.com/The412Banner/Banners-Turnip/releases/tag/v26.3.0-20261005) | 2026-10-05 | [`84673c2`](https://gitlab.freedesktop.org/mesa/mesa/-/commit/84673c27310cd93c2df3c0dbf6d1b474e915578f) | broadcom/ci: update expected list | Vulkan 1.4.363 |
 <!-- RECENT_BUILDS_END -->
 
 ---
