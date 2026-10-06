@@ -26,7 +26,7 @@ jobs:
             extra_script: "patches/a8xx_shared_mem.py"
           - variant: 710-720-test
             suffix: "-710-720-Test"
-            extra_patch: ""
+            extra_patch: "patches/710-720/01-u_gralloc-always-use-ubwc-detection.patch"
             extra_script: "patches/a710-720.py"
 
     steps:

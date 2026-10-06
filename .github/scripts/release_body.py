@@ -32,7 +32,7 @@ DRIVERS = [
     },
     {
         "variant": "a8xx", "suffix": "-A8xx", "label": "A8xx", "kind": "Snapdragon 8 Elite",
-        "gpus": "Adreno 840 / 830 / 829 / 825 / 810: Snapdragon 8 Elite",
+        "gpus": "Adreno 840 / 830 / 829 / 825 / 812 / 810: Snapdragon 8 Elite",
     },
     {
         "variant": "710-720-test", "suffix": "-710-720-Test", "label": "A710 / A720 / A722", "kind": "Experimental",
@@ -209,7 +209,7 @@ def main():
 
     short = {
         "regular": ("**Standard**", "Adreno 6xx / 7xx (8 Gen 3 and older)"),
-        "a8xx": ("**A8xx** (experimental)", "Adreno 810 / 825 / 829 / 830 / 840 (8 Elite)"),
+        "a8xx": ("**A8xx** (experimental)", "Adreno 810 / 812 / 825 / 829 / 830 / 840 (8 Elite)"),
         "710-720-test": ("**A710 / A720 / A722** (experimental, untested on hardware)", "Adreno 710 / 720 / 722"),
         "8g2-oneui": ("**8 Gen 2 One UI**", "Adreno 740 (8 Gen 2) with UI flicker, e.g. Samsung One UI"),
     }
@@ -277,8 +277,11 @@ def main():
     if a8_scripts:
         a8_desc += " + " + ", ".join(link(x) for x in a8_scripts)
     w(f"- **A8xx:** {a8_desc}.")
-    w(f"- **A710 / A720 / A722:** " + ", ".join(link(x) for x in t7_scripts)
-      + " from [Vauzi-17/710](https://github.com/Vauzi-17/710).")
+    t7_patch = t7.get("extra_patch") or "patches/710-720/01-u_gralloc-always-use-ubwc-detection.patch"
+    w("- **A710 / A720 / A722:** A710 and A720 come from Mesa `main` itself (upstream since September 2026). "
+      + ", ".join(link(x) for x in t7_scripts) + " swaps Mesa's A730-based A722 entry for "
+      "[Vauzi-17/710](https://github.com/Vauzi-17/710)'s hardware-captured A722 registers (`num_ccu = 2`), and "
+      + link(t7_patch) + " is the UBWC fix from Vauzi-17/710's own releases.")
     w("- **8 Gen 2 One UI:** Standard plus " + link("patches/8g2_oneui.py")
       + ": `enable_tp_ubwc_flag_hint` on for the Adreno 740 (Mesa leaves it off to match the older system driver).")
     w("- **Wayland zips:** the same commit and patches, built as Linux-style Vulkan drivers (KGSL, Wayland, bionic) "
