@@ -131,6 +131,11 @@ jobs:
             extra_patch: "patches/a8xx_gen8.patch"
             extra_script: "patches/a8xx_shared_mem.py:patches/a840v2.py"
             meta_desc: "A8xx experimental Turnip driver for Snapdragon 8 Elite (A840/A830/A829/A825/A812/A810). whitebelyash turnip/gen8 A8xx stack on top of Mesa main (matches tu_v29 / StevenMXZ v33). KGSL build."
+          - variant: a845-test
+            suffix: "-A845-Test"
+            extra_patch: "patches/a8xx_gen8.patch"
+            extra_script: "patches/a8xx_shared_mem.py:patches/a840v2.py:patches/a845_experimental.py"
+            meta_desc: "EXPERIMENTAL BRING-UP — Adreno 845 / SM8950 retail KGSL chip_id 0x44041430. Temporarily aliases A845 to the existing A840 GPUInfo only to get past unsupported-device detection. Not production support; may hang, render incorrectly, or fail later."
           - variant: 710-720-test
             suffix: "-710-720-Test"
             extra_patch: "patches/710-720/01-u_gralloc-always-use-ubwc-detection.patch"
